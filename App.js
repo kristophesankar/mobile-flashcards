@@ -6,7 +6,11 @@ import AddCard from './src/components/AddCard'
 import Quiz from './src/components/Quiz'
 import { Constants } from 'expo'
 import { StyleSheet, Text, View, Platform, StatusBar} from 'react-native'
-import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
+import { createMaterialTopTabNavigator, createAppContainer } from 'react-navigation'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './src/reducers'
+import middleware from './src/middleware'
 
 function AppStatusBar ({backgroundColor, ...props}) {
   return (
@@ -43,13 +47,17 @@ const TabNavigator = createMaterialTopTabNavigator({
 
 const Tabs = createAppContainer(TabNavigator);
 
+const store = createStore(reducer, middleware)
+
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex: 1}}>
-        <AppStatusBar backgroundColor='#000' barStyle="light-content" />
-        <Tabs />
-      </View>
+      <Provider store={store}>
+        <View style={{flex: 1}}>
+          <AppStatusBar backgroundColor='#000' barStyle="light-content" />
+          <Tabs />
+        </View>
+      </Provider>
     )
   }
 }
