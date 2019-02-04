@@ -6,6 +6,12 @@ Nanodegree programme.
 Mobile-Flashcards is an app where users can add decks and cards.
 Users can then do quizzes based on these decks.
 
+## Prerequisites
+
+- Android Studio Emulator or Genymotion Android Emulator
+- Expo
+- Yarn
+
 ## Installation
 To get started:
 
