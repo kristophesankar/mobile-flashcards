@@ -14,6 +14,8 @@ function isEmpty(obj) {
     return true;
 }
 
+
+//deck lis component
 class DeckList extends Component {
 
   componentDidMount () {

@@ -1,3 +1,5 @@
+//middleware components
+
 import thunk from 'redux-thunk'
 import logger from '../middleware/logger'
 import { applyMiddleware } from 'redux'

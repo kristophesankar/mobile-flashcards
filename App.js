@@ -5,8 +5,15 @@ import AddDeck from './src/components/AddDeck'
 import AddCard from './src/components/AddCard'
 import Quiz from './src/components/Quiz'
 import { Constants } from 'expo'
-import { StyleSheet, Text, View, Platform, StatusBar, ScrollView} from 'react-native'
-import { createMaterialTopTabNavigator,
+import {
+  StyleSheet,
+  Text,
+  View,
+  Platform,
+  StatusBar,
+  ScrollView} from 'react-native'
+import {
+  createMaterialTopTabNavigator,
   createAppContainer,
   createStackNavigator } from 'react-navigation'
 import { createStore } from 'redux'
@@ -15,6 +22,7 @@ import reducer from './src/reducers'
 import middleware from './src/middleware'
 import { setLocalNotification } from './src/utils/helpers.js'
 
+// accounts for statusbar height
 function AppStatusBar ({backgroundColor, ...props}) {
   return (
     <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
@@ -23,6 +31,7 @@ function AppStatusBar ({backgroundColor, ...props}) {
   )
 }
 
+// scrollview with list of decks
 class DecksListScreen extends Component {
   render() {
     return (
@@ -33,6 +42,7 @@ class DecksListScreen extends Component {
   }
 }
 
+// add screen view
 class AddDeckScreen extends Component {
   render() {
     return (
@@ -43,6 +53,7 @@ class AddDeckScreen extends Component {
   }
 }
 
+// individual deck screen
 class DeckScreen extends Component {
   render() {
     return (
@@ -53,6 +64,7 @@ class DeckScreen extends Component {
   }
 }
 
+// top navigation bar
 const TabNavigator = createMaterialTopTabNavigator({
   'Decks': DecksListScreen,
   'Add Deck': AddDeckScreen,
@@ -60,6 +72,7 @@ const TabNavigator = createMaterialTopTabNavigator({
 
 const Tabs = createAppContainer(TabNavigator);
 
+// rest of navigation for app
 const StackNavigator = createStackNavigator({
   Home:{
     screen: Tabs,
@@ -100,8 +113,11 @@ const Stack = createAppContainer(StackNavigator);
 
 const store = createStore(reducer, middleware)
 
+// main app component that provides redux store
 export default class App extends Component {
   componentDidMount() {
+
+    //sets a notification to prompt user
     setLocalNotification()
   }
 

@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, StyleSheet, TouchableOpacity,
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
   KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { receiveDecks, addDeck, updateDeck } from '../actions'
 import { fetchDecks, removeDeck, addCard, submitDeck } from '../utils/api'
 import { timeToString } from '../utils/helpers'
 import { withNavigation } from 'react-navigation'
+
+//add card component
 
 class AddCard extends Component {
 
@@ -27,6 +34,7 @@ class AddCard extends Component {
     this.setState({id: key})
   }
 
+  //submit function for adding a card
   submit = () => {
 
     const {navigation, dispatch} = this.props
@@ -50,7 +58,7 @@ class AddCard extends Component {
     )
   }
 
-
+  // return UI
   render () {
     return (
       <KeyboardAvoidingView

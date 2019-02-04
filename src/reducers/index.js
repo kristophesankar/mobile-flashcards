@@ -1,5 +1,7 @@
 import { ADD_DECK, RECEIVE_DECKS, UPDATE_DECK } from '../actions'
 
+//redux reducer functions for decks
+
 function decks ( state = {}, action ) {
   switch ( action.type ) {
     case RECEIVE_DECKS :

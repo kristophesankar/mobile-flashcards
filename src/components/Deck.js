@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { withNavigation } from 'react-navigation'
 
-
+//individual deck component
 class Deck extends Component {
 
   state = {

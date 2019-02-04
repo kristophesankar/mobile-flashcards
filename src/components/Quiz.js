@@ -9,7 +9,7 @@ import {
   setLocalNotification
 } from '../utils/helpers'
 
-
+//quiz component
 class Quiz extends Component {
 
   state = {

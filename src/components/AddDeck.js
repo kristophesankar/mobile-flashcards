@@ -12,6 +12,8 @@ import { timeToString } from '../utils/helpers'
 import { submitDeck } from '../utils/api'
 import { withNavigation } from 'react-navigation'
 
+//add deck component
+
 class AddDeck extends Component {
 
   state = {
